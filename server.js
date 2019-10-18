@@ -1,6 +1,7 @@
 const express = require ('express');
 const bodyParser = require('body-parser');
 const https = require('https');
+require('dotenv').config()
 
 //express app
 const app = express();
@@ -21,6 +22,7 @@ app.use(function(req, res, next) {
 // Configuring the database
 const dbConfig = require('./config/database.config.js');
 const mongoose = require('mongoose');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/roomies-as', { useNewUrlParser: true });
 
 require('./app/routes/task.routes.js')(app);
 
@@ -30,44 +32,28 @@ mongoose.Promise = global.Promise;
 // Require tasks routes
 
 
-// Connecting to the database
-mongoose.connect(dbConfig.url, {
-    useNewUrlParser: true
-}).then(() => {
-    console.log("Successfully connected to the database");
-});
-
-
-// home route
-// app.get('/', (req, res) => {
-//     const options = {
-//       path: '/',
-//       method: 'GET'
-//     };
-//
-//     const getAllTasks = https.request(options, (r) => {
-//       console.log('statusCode:', r.statusCode);
-//       console.log('headers:', r.headers);
-//
-//       r.on('data', (tasks) => {
-//         console.log(tasks);
-//
-//         res.render("/views/tasks/index", {tasks: tasks});
-//       });
-//     });
-//
-//     getAllTasks.on('error', (e) => {
-//       console.error(e);
-//     });
-//
-//     getAllTasks.end();
+// // Connecting to the database
+// mongoose.connect(dbConfig.url, {
+//     useNewUrlParser: true
+// }).then(() => {
+//     console.log("Successfully connected to the database");
 // });
 
 
 
-//monitor requests
 
-app.listen(3000, ()=>{
 
-    console.log("server is listening on port 3000");
-});
+// const port = process.env.PORT || 3000;
+// app.listen(port);
+//
+//
+// //monitor requests
+//
+// app.listen(3000, ()=>{
+//
+//     console.log("server is listening on port 3000");
+// });
+
+app.listen(process.env.PORT || 3000 (req, res) => {
+    console.log("Listening at port 3000")
+})
