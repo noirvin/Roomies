@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Tasks List</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <title>Roomies</title>
+    <h1>Roomies</h1>
+    <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css">
+
   </head>
   <body>
     <div class="container">
-      <h3><a href="/task/create">Add Task</a></h3>
+      <h3 align="right"><a href="/task/create">Add Task</a></h3>
       <h1>Tasks List</h1>
       <% if(tasks.length>0) { %>
       <table>
         <thead>
           <tr>
             <th> Title</th>
-            <th>Content</th>
+            <th> Content</th>
           </tr>
         </thead>
         <tbody>
