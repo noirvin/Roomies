@@ -2,9 +2,10 @@
   "name": "yes",
   "version": "1.0.0",
   "description": "Keep track of daily tasks with your house mates",
-  "main": "index.js",
+  "main": "server.js",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "ejs": "^2.7.1",
     "express": "^4.17.1",
     "mongoose": "^5.7.5"
   },
