@@ -5,12 +5,13 @@ const bodyParser = require('body-parser');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
 const https = require('https');
+const bcrypt = require('bcrypt')
 require('dotenv').config()
 
 //express app
 const app = express();
 
-//equire('./config/passport')(passport);
+require('./config/passport')(passport);
 
 // parse request
 app.use(cookieParser());
