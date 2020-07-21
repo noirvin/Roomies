@@ -18,6 +18,7 @@ exports.showAll = (req, res) => {
 
 exports.editTask = (req, res) => {
     Task.findById(req.params.taskId)
+    .populate('comments')
     .then(task => {
         if(!task) {
             return res.status(404).send({

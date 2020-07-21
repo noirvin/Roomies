@@ -26,6 +26,15 @@
       <form action="/tasks/delete/<%= task._id%>/" method="post">
         <button type="submit">Mark Task as Complete</button>
       </form>
+      <form action="/tasks/update/:taskId/comments" method="post">
+        <textarea class='form-control' name="content" placeholder="Comment"></textarea>
+        <div class="text-right">
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+      {{#each post.comments}}
+      <p>{{this.content}}</p>
+    {{/each}}
     </div>
   </body>
 </html>

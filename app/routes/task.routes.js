@@ -1,6 +1,7 @@
 module.exports = (app, passport) => {
     const tasks = require('../controllers/task.controller.js');
-
+    const Comment = require('../models/comment');
+    const Task = require('../models/task.model');
     // views
     app.get('/', tasks.showAll);
     app.get('/task/create', tasks.newTask);
@@ -54,7 +55,29 @@ module.exports = (app, passport) => {
 
         res.redirect('/');
     }
+    //comment routes
+    app.post("/tasks/update/:taskId/comments", function(req, res) {
+        // INSTANTIATE INSTANCE OF MODEL
+        const comment = new Comment(req.body);
 
+        // SAVE INSTANCE OF Comment MODEL TO DB
+        comment
+        .save()
+        .then(comment => {
+            // REDIRECT TO THE ROOT
+            return Task.findById(req.params.taskId);
+        })
+        .then(task =>{
+            task.comments.unshift(comment);
+            return task.save();
+        })
+        .then(task =>{
+            res.redirect('/')
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
 
 
 
