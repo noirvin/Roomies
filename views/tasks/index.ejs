@@ -8,7 +8,14 @@
   </head>
   <body>
     <div class="container">
-      <h3 align="right"><a href="/task/create">Add Task</a></h3>
+      <div class="jumbotron text-top">
+
+        <p>Login or Register:</p>
+
+        <a href="/login" class="btn btn-default"><span class="fa fa-user"></span> Login</a>
+        <a href="/signup" class="btn btn-default"><span class="fa fa-user"></span> Signup</a>
+    </div>
+    <h3 align="right"><a href="/task/create">Add Task</a></h3>
       <h1>Tasks List</h1>
       <% if(tasks.length>0) { %>
       <table>

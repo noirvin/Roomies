@@ -1,4 +1,4 @@
-module.exports = (app) => {
+module.exports = (app, passport) => {
     const tasks = require('../controllers/task.controller.js');
 
     // views
@@ -16,4 +16,14 @@ module.exports = (app) => {
 
     // remove a task
     app.post('/tasks/delete/:taskId', tasks.delete);
+
+    //authroutes
+
+    app.get('/login',(req, res) => {
+
+        res.render('login.ejs', { message: req.flash('loginMessage') });
+    });
+
+
+
 }
