@@ -2,4 +2,4 @@ Project Motivation: It's hard to organize house tasks when you have few roommate
 
 Design: This project is designed with node.js runtime environment and tested on localhost with express, and uses mongoDB as database
 
-Code Structures: Includes a main server.js file, routes that work with controllers to do requests and response, and a mongoDB schema that defines the "Task" data
+Code Structures: Includes a main server.js file, routes that work with controllers to do requests and response, and 3 mongoDB schemas that defines the task, user, and comment data
